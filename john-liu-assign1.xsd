@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:asn1="http://www.bcit.ca/comp/4621"
+    targetNamespace="http://www.bcit.ca/comp/4621"
+    elementFormDefault="qualified">
+
+  <!-- School -->
+  <xs:element name="school">
+    <xs:complexType>
+      <xs:sequence>
+        <!-- referring to courses -->
+        <xs:element ref="asn1:courses"/>
+        <!-- and the rest of them -->
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+
+<!-- Courses referring to course -->
+  <xs:element name="courses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="asn1:course" minOccurs="0" maxOccurs="255"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Global for course since there will be LOTS courses max255 -->
+  <xs:element name="course" type="asn1:courseType" />
+
+  <!-- Details of a course -->
+  <!-- a course has credits, description, courseNumber and name -->
+  <xs:complexType name="courseType">
+    <xs:sequence>
+      <xs:element ref="asn1:courseName" />
+      <xs:element ref="asn1:courseNumber" />
+      <xs:element ref="asn1:description" />
+      <xs:element ref="asn1:credits" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- courseName element which the above courseType is referring to this -->
+  <xs:element name="courseName">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:minLength value="4"/>
+        <xs:maxLength value="6"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- courseNumber element which the above courseType is referring to this -->
+  <xs:element name="courseNumber">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:pattern value="[0-9][0-9][0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- Description element which the above courseType is referring to this -->
+  <xs:element name="description">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:minLength value="0"/>
+        <xs:maxLength value="255"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- Credit element which the above courseType is referring to this -->
+  <xs:element name="credits">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0"/>
+        <xs:maxInclusive value="20"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+</xs:schema>

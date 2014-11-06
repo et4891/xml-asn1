@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<asn1:school xmlns:asn1="http://www.bcit.ca/comp/4621"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.bcit.ca/comp/4621 ./john-liu-assign1.xsd">
+  <asn1:courses>
+    <asn1:course>
+    <asn1:courseName>COMP</asn1:courseName>
+      <asn1:courseNumber>3053</asn1:courseNumber>
+    	<asn1:description>XML for PHP Developers</asn1:description>
+    	<asn1:credits>10</asn1:credits>
+    	
+    </asn1:course>
+  </asn1:courses>
+</asn1:school>
