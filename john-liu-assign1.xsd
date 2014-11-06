@@ -38,6 +38,11 @@
       <xs:element name="homePhone" type="asn1:phone" />
       <xs:element name="workPhone" type="asn1:phone" />
       <xs:element name="optionalPhone" type="asn1:phone" minOccurs="0"/>
+      <xs:element ref="asn1:optional-suite" minOccurs="0" />
+      <xs:element ref="asn1:address-number" />
+      <xs:element name="street" type="xs:normalizedString" />
+      <xs:element name="city" type="xs:normalizedString" />
+      <xs:element ref="asn1:postal-code" />
     </xs:sequence>
   </xs:complexType>
 
@@ -59,17 +64,44 @@
     </xs:simpleType>
   </xs:element>
 
-  <!-- Type 'phone' which the above type in elements are referring to this -->
-  <xs:simpleType name="phone">
-    <xs:restriction base="xs:token">
-      <xs:pattern value="([0-9]{3}-[0-9]{3}-[0-9]{4})|([0-9]{3} [0-9]{3} [0-9]{4})"/>
-    </xs:restriction>
-  </xs:simpleType>
+  <!-- optional-suite element which the above studentInfo is referring to this -->
+  <xs:element name="optional-suite">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="0" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- address-number element which the above studentInfo is referring to this -->
+  <xs:element name="address-number">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="1" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- postal-code element which the above studentInfo is referring to this -->
+  <xs:element name="postal-code">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:pattern value="[A-Z][0-9][A-Z] [0-9][A-Z][0-9]" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 
   <!-- Type 'name' which the above type in elements are referring to this -->
   <xs:simpleType name="name">
     <xs:restriction base="xs:token">
       <xs:pattern value="[A-Z][a-z]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Type 'phone' which the above type in elements are referring to this -->
+  <xs:simpleType name="phone">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="([0-9]{3}-[0-9]{3}-[0-9]{4})|([0-9]{3} [0-9]{3} [0-9]{4})"/>
     </xs:restriction>
   </xs:simpleType>
 

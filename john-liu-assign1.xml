@@ -11,6 +11,11 @@
 			<asn1:homePhone>604-518-7187</asn1:homePhone>
 			<asn1:workPhone>604-518-7187</asn1:workPhone>
 			<asn1:optionalPhone>604-518-7187</asn1:optionalPhone>
+			<asn1:optional-suite>1</asn1:optional-suite>
+			<asn1:address-number>2412</asn1:address-number>
+			<asn1:street>Portland Street</asn1:street>
+			<asn1:city>Burnaby</asn1:city>
+			<asn1:postal-code>V4D 2J3</asn1:postal-code>
 		</asn1:student>
 	</asn1:students>
 
