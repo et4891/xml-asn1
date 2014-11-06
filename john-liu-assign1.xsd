@@ -9,12 +9,69 @@
     <xs:complexType>
       <xs:sequence>
         <!-- referring to courses -->
+        <xs:element ref="asn1:students"/>
         <xs:element ref="asn1:courses"/>
         <!-- and the rest of them -->
       </xs:sequence>
     </xs:complexType>
   </xs:element>
 
+<!-- Students referring to student -->
+  <xs:element name="students">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="asn1:student" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Global for student since there will be LOTS courses unbounded -->
+  <xs:element name="student" type="asn1:studentInfo" />
+
+  <!-- Info of a student -->
+  <xs:complexType name="studentInfo">
+    <xs:sequence>
+      <xs:element ref="asn1:ID" />
+      <xs:element name="firstName" type="asn1:name" />
+      <xs:element name="lastName" type="asn1:name" />
+      <xs:element ref="asn1:email" minOccurs="0" maxOccurs="4" />      
+      <xs:element name="homePhone" type="asn1:phone" />
+      <xs:element name="workPhone" type="asn1:phone" />
+      <xs:element name="optionalPhone" type="asn1:phone" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- ID element which the above studentInfo is referring to this -->
+  <xs:element name="ID">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:pattern value="[A][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- email element which the above studentInfo is referring to this -->
+  <xs:element name="email">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:pattern value="[^@]+@[^\.]+\..+"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- Type 'phone' which the above type in elements are referring to this -->
+  <xs:simpleType name="phone">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="([0-9]{3}-[0-9]{3}-[0-9]{4})|([0-9]{3} [0-9]{3} [0-9]{4})"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- Type 'name' which the above type in elements are referring to this -->
+  <xs:simpleType name="name">
+    <xs:restriction base="xs:token">
+      <xs:pattern value="[A-Z][a-z]*"/>
+    </xs:restriction>
+  </xs:simpleType>
 
 <!-- Courses referring to course -->
   <xs:element name="courses">
