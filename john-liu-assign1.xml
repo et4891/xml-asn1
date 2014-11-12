@@ -4,10 +4,10 @@
   xsi:schemaLocation="http://www.bcit.ca/comp/4621 ./john-liu-assign1.xsd">
 	<asn1:students>
 		<asn1:student>
-			<asn1:ID>A00519809</asn1:ID>
-			<asn1:firstName>John</asn1:firstName>
-			<asn1:lastName>Liu</asn1:lastName>
-			<asn1:email>et1103@hotmail.com</asn1:email>
+			<asn1:studentID>A00123456</asn1:studentID>
+			<asn1:firstName>Ash</asn1:firstName>
+			<asn1:lastName>Banana</asn1:lastName>
+			<asn1:email>ab1103@hotmail.com</asn1:email>
 			<asn1:homePhone>604-518-7187</asn1:homePhone>
 			<asn1:workPhone>604-518-7187</asn1:workPhone>
 			<asn1:optionalPhone>604-518-7187</asn1:optionalPhone>
@@ -17,14 +17,77 @@
 			<asn1:city>Burnaby</asn1:city>
 			<asn1:postal-code>V4D 2J3</asn1:postal-code>
 		</asn1:student>
+
+		<asn1:student>
+			<asn1:studentID>A00654321</asn1:studentID>
+			<asn1:firstName>Cathy</asn1:firstName>
+			<asn1:lastName>Derek</asn1:lastName>
+			<asn1:email>cd1103@hotmail.com</asn1:email>
+			<asn1:homePhone>604-518-7187</asn1:homePhone>
+			<asn1:workPhone>604-518-7187</asn1:workPhone>
+			<asn1:optionalPhone>604-518-7187</asn1:optionalPhone>
+			<asn1:optional-suite>21</asn1:optional-suite>
+			<asn1:address-number>56412</asn1:address-number>
+			<asn1:street>Maple Ridge Way</asn1:street>
+			<asn1:city>Richmond</asn1:city>
+			<asn1:postal-code>V1C 5A3</asn1:postal-code>
+		</asn1:student>
+
+		<asn1:student>
+			<asn1:studentID>A00584268</asn1:studentID>
+			<asn1:firstName>Ellie</asn1:firstName>
+			<asn1:lastName>Frankie</asn1:lastName>
+			<asn1:email>ef1103@hotmail.com</asn1:email>
+			<asn1:homePhone>604-518-7187</asn1:homePhone>
+			<asn1:workPhone>604-518-7187</asn1:workPhone>
+			<asn1:optionalPhone>604-518-7187</asn1:optionalPhone>
+			<asn1:optional-suite>102</asn1:optional-suite>
+			<asn1:address-number>8642</asn1:address-number>
+			<asn1:street>Portland Avenue</asn1:street>
+			<asn1:city>Vancouver</asn1:city>
+			<asn1:postal-code>A1C 5X3</asn1:postal-code>
+		</asn1:student>
 	</asn1:students>
 
   <asn1:courses>
     <asn1:course>
-   		<asn1:courseName>COMP</asn1:courseName>
-      <asn1:courseNumber>3053</asn1:courseNumber>
-    	<asn1:description>XML for PHP Developers</asn1:description>
+   		<asn1:courseName>XML for Web Developers</asn1:courseName>
+      <asn1:courseNumber>COMP2053</asn1:courseNumber>
+    	<asn1:description>XML is a standard for structuring, and storing web information</asn1:description>
+    	<asn1:credits>8</asn1:credits>
+    </asn1:course>
+
+    <asn1:course>
+   		<asn1:courseName>XML for PHP Developers</asn1:courseName>
+      <asn1:courseNumber>COMP3053</asn1:courseNumber>
+    	<asn1:description>This hands-on course assumes prior web development experience and is built on top of COMP 1920 – Server-Side Web Scripting with PHP Level 1, plus COMP 2053 – XML for Web Development.</asn1:description>
+    	<asn1:credits>10</asn1:credits>
+    </asn1:course>
+
+    <asn1:course>
+   		<asn1:courseName>Server-side Web Scripting with PHP Level 1</asn1:courseName>
+      <asn1:courseNumber>COMP1920</asn1:courseNumber>
+    	<asn1:description>This hands-on course introduces server-side scripting using PHP (PHP: Hypertext Preprocessor)</asn1:description>
     	<asn1:credits>10</asn1:credits>
     </asn1:course>
   </asn1:courses>
+
+  <asn1:crns>
+  	<asn1:crn>
+  		<asn1:crn-ID>54820</asn1:crn-ID>
+  		<asn1:courseNumber>COMP2053</asn1:courseNumber>
+  		<asn1:totalNumberStudents>15</asn1:totalNumberStudents>
+  		<asn1:endDate>2014-01-02</asn1:endDate>
+  		<asn1:startDate>2013-12-01</asn1:startDate>
+  		<asn1:tuition>$121.21</asn1:tuition>
+  		<asn1:instructorName>Arron F</asn1:instructorName>
+  	</asn1:crn>
+  </asn1:crns>
+
+	<asn1:studentCRNs>
+		<asn1:studentCRN>
+			<asn1:studentID>A00518971</asn1:studentID>
+			<asn1:crn-ID>34252</asn1:crn-ID>
+		</asn1:studentCRN>
+	</asn1:studentCRNs>
 </asn1:school>

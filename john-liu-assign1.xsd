@@ -11,6 +11,8 @@
         <!-- referring to courses -->
         <xs:element ref="asn1:students"/>
         <xs:element ref="asn1:courses"/>
+        <xs:element ref="asn1:crns"/>
+        <xs:element ref="asn1:studentCRNs"/>
         <!-- and the rest of them -->
       </xs:sequence>
     </xs:complexType>
@@ -31,7 +33,7 @@
   <!-- Info of a student -->
   <xs:complexType name="studentInfo">
     <xs:sequence>
-      <xs:element ref="asn1:ID" />
+      <xs:element ref="asn1:studentID" />
       <xs:element name="firstName" type="asn1:name" />
       <xs:element name="lastName" type="asn1:name" />
       <xs:element ref="asn1:email" minOccurs="0" maxOccurs="4" />      
@@ -47,10 +49,10 @@
   </xs:complexType>
 
   <!-- ID element which the above studentInfo is referring to this -->
-  <xs:element name="ID">
+  <xs:element name="studentID">
     <xs:simpleType>
       <xs:restriction base="xs:string">
-        <xs:pattern value="[A][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+        <xs:pattern value="[A][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]" />
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
@@ -94,7 +96,7 @@
   <!-- Type 'name' which the above type in elements are referring to this -->
   <xs:simpleType name="name">
     <xs:restriction base="xs:token">
-      <xs:pattern value="[A-Z][a-z]*"/>
+      <xs:pattern value="(([A-Z][a-z]* [A-Z][a-z]*)|([A-Z][a-z]*))"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -121,28 +123,18 @@
   <!-- a course has credits, description, courseNumber and name -->
   <xs:complexType name="courseType">
     <xs:sequence>
-      <xs:element ref="asn1:courseName" />
+      <xs:element name="courseName" type="xs:token" />
       <xs:element ref="asn1:courseNumber" />
       <xs:element ref="asn1:description" />
       <xs:element ref="asn1:credits" />
     </xs:sequence>
   </xs:complexType>
 
-  <!-- courseName element which the above courseType is referring to this -->
-  <xs:element name="courseName">
-    <xs:simpleType>
-      <xs:restriction base="xs:token">
-        <xs:minLength value="4"/>
-        <xs:maxLength value="6"/>
-      </xs:restriction>
-    </xs:simpleType>
-  </xs:element>
-
   <!-- courseNumber element which the above courseType is referring to this -->
   <xs:element name="courseNumber">
     <xs:simpleType>
       <xs:restriction base="xs:token">
-        <xs:pattern value="[0-9][0-9][0-9][0-9]"/>
+        <xs:pattern value="[A-Z][A-Z][A-Z][A-Z][0-9][0-9][0-9][0-9]"/>
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
@@ -166,5 +158,78 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
+
+<!-- CRNs referring to crn -->
+  <xs:element name="crns">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="asn1:crn" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Global for crn since there will be LOTS crns unbounded -->
+  <xs:element name="crn" type="asn1:crnInfo" />
+
+  <!-- Info of a crn -->
+  <xs:complexType name="crnInfo">
+    <xs:sequence>
+      <xs:element ref="asn1:crn-ID" />
+      <xs:element ref="asn1:courseNumber" />
+      <xs:element ref="asn1:totalNumberStudents" />
+      <xs:element name="endDate" type="xs:date" />
+      <xs:element name="startDate" type="xs:date" />
+      <xs:element ref="asn1:tuition" />
+      <xs:element name="instructorName" type="asn1:name" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- crn-ID element which the above crnType is referring to this -->
+  <xs:element name="crn-ID">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:pattern value="[0-9][0-9][0-9][0-9][0-9]"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- totalNumberStudents element which the above crnInfo is referring to this -->
+  <xs:element name="totalNumberStudents">
+    <xs:simpleType>
+      <xs:restriction base="xs:integer">
+        <xs:minInclusive value="6" />
+        <xs:maxInclusive value="25" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+  <!-- tuition element which the above crnInfo is referring to this -->
+  <xs:element name="tuition">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:pattern value="$[0-9]{2,6}\.[0-9]{2}" />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+
+<!-- studentCRNs referring to student -->
+  <xs:element name="studentCRNs">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="asn1:studentCRN" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <!-- Global for studentCRN since there will be LOTS studentCRN unbounded -->
+  <xs:element name="studentCRN" type="asn1:studentCRNsInfo" />
+
+  <!-- Info of a studentCRN -->
+  <xs:complexType name="studentCRNsInfo">
+    <xs:sequence>
+      <xs:element ref="asn1:studentID" />
+      <xs:element ref="asn1:crn-ID" />
+    </xs:sequence>
+  </xs:complexType>
 
 </xs:schema>
