@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://www.bcit.ca/comp/4621 ./john-liu-assign1.xsd">
 	<asn1:students>
 		<asn1:student>
-			<asn1:studentID>A00123456</asn1:studentID>
+			<asn1:studentID>A00518971</asn1:studentID>
 			<asn1:firstName>Ash</asn1:firstName>
 			<asn1:lastName>Banana</asn1:lastName>
 			<asn1:email>ab1103@hotmail.com</asn1:email>
@@ -74,8 +74,28 @@
 
   <asn1:crns>
   	<asn1:crn>
-  		<asn1:crn-ID>54820</asn1:crn-ID>
+  		<asn1:crn-ID>34252</asn1:crn-ID>
   		<asn1:courseNumber>COMP2053</asn1:courseNumber>
+  		<asn1:totalNumberStudents>15</asn1:totalNumberStudents>
+  		<asn1:endDate>2014-01-02</asn1:endDate>
+  		<asn1:startDate>2013-12-01</asn1:startDate>
+  		<asn1:tuition>$121.21</asn1:tuition>
+  		<asn1:instructorName>Arron F</asn1:instructorName>
+  	</asn1:crn>
+
+  	<asn1:crn>
+  		<asn1:crn-ID>23542</asn1:crn-ID>
+  		<asn1:courseNumber>COMP3053</asn1:courseNumber>
+  		<asn1:totalNumberStudents>15</asn1:totalNumberStudents>
+  		<asn1:endDate>2014-01-02</asn1:endDate>
+  		<asn1:startDate>2013-12-01</asn1:startDate>
+  		<asn1:tuition>$121.21</asn1:tuition>
+  		<asn1:instructorName>Arron F</asn1:instructorName>
+  	</asn1:crn>
+
+  	<asn1:crn>
+  		<asn1:crn-ID>85531</asn1:crn-ID>
+  		<asn1:courseNumber>COMP1920</asn1:courseNumber>
   		<asn1:totalNumberStudents>15</asn1:totalNumberStudents>
   		<asn1:endDate>2014-01-02</asn1:endDate>
   		<asn1:startDate>2013-12-01</asn1:startDate>
@@ -88,6 +108,16 @@
 		<asn1:studentCRN>
 			<asn1:studentID>A00518971</asn1:studentID>
 			<asn1:crn-ID>34252</asn1:crn-ID>
+		</asn1:studentCRN>
+
+		<asn1:studentCRN>
+			<asn1:studentID>A00654321</asn1:studentID>
+			<asn1:crn-ID>85531</asn1:crn-ID>
+		</asn1:studentCRN>
+
+		<asn1:studentCRN>
+			<asn1:studentID>A00518971</asn1:studentID>
+			<asn1:crn-ID>85531</asn1:crn-ID>
 		</asn1:studentCRN>
 	</asn1:studentCRNs>
 </asn1:school>

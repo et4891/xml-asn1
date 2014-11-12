@@ -16,6 +16,22 @@
         <!-- and the rest of them -->
       </xs:sequence>
     </xs:complexType>
+    <xs:key name="studentPK">
+      <xs:selector xpath="asn1:students/asn1:student"/>
+      <xs:field xpath="asn1:studentID"/>
+    </xs:key>
+    <xs:keyref name="studentRef" refer="asn1:studentPK">
+      <xs:selector xpath="asn1:studentCRNs/asn1:studentCRN"/>
+      <xs:field xpath="asn1:studentID"/>
+    </xs:keyref>
+    <xs:key name="crnPK">
+      <xs:selector xpath="asn1:crns/asn1:crn"/>
+      <xs:field xpath="asn1:crn-ID"/>
+    </xs:key>
+    <xs:keyref name="crnRef" refer="asn1:crnPK">
+      <xs:selector xpath="asn1:studentCRNs/asn1:studentCRN"/>
+      <xs:field xpath="asn1:crn-ID"/>
+    </xs:keyref>
   </xs:element>
 
 <!-- Students referring to student -->
